@@ -104,11 +104,58 @@ def table(request):
 
     # userdata = students.objects.filter(
     # Q(roll__gt=30) & Q(Name__startswith="g"))
-    userdata = students.objects.filter(
-        Q(roll__gt=30) | Q(Name__startswith="g"))
+    # userdata = students.objects.filter(
+    #     Q(roll__gt=30) | Q(Name__startswith="g"))
 
-    print(userdata)
+    # here one object return
+    # it will return single object  if this value present in database otherwise it will return a error DoesNotExist at /Table
+    # so get will occur error when value is not present in database or more than one value present in database  here only one value unique value will get by get method
+    # userdata = teacher.objects.get(id=2)
+
+    # first method : it will return first value of the database and we can user any filter or order
+    # so it returns last value by id we give decesnding order
+    # userdata = teacher.objects.order_by("-id").first()
+    # last() it will return last value of this table so it returns first value of this table because we use decesnding order by id
+    # userdata = teacher.objects.order_by("-id").last()
+
+    # latest
+    # so it returns latest date from the table data it returns very latest data 26 april 2022
+    # userdata = teacher.objects.latest("Dob")
+    # earliest means very old data
+    # userdata = teacher.objects.earliest("Dob")
+
+    # exist ()   it return true or false if data is avaialable then it returns true otherwise false.
+    # we can use it also it will also return value with name
+    # userdata = teacher.objects.values_list("Name", named=True)
+    # print(userdata.exists()) so it returns true becasue userdata have some value
+
+    # userdata = students.objects.get(id=1)
+
+    # +++++++++++++++++++++++++++++++++++++++++++++$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    # ###############################$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    # here we saw some important methods
+
+    # # here we need to give two arguments userdata and created so created means if created then created true otherwise userdata will  get value always ./and it returns also a object not a query set
+    # userdata, created = students.objects.get_or_create(
+    #     Name="ramsign", Email="rajput@gmail.com", Phone='63541251522', Address="cislkdfkal yan purs", roll=22)
+
+    # userdata = students.objects.filter(id=1505).update(
+    # Name="Gaurav Singh", Address="Chandigarh") so it returns no of row which row it updates so it updates 1 field so it reutrn 1 also
+
+    # so here we cahnges all names where roll no is greater than 22
+    # udatedata = students.objects.filter(roll__gt=22).update(Name="Gaurav")
+    # userdata = students.objects.all()
+
+    # userdata1, updatedata = students.objects.filter(
+    #     roll__gt=22).update_or_create(Name="Rajput Gaurav", defaults={"Name": "hey rajput ji"})
+    userdata = students.objects.all()
+
+    # print(userdata.count()) count() return all numbers of object in the database
     # we can show sql query  in our terminal by this query property
-    print(userdata.query)
+    # print(userdata.query)
 
     return render(request, "stuapp/table.html", {"data": userdata})
+    # it is only for one object because in table.html we use for loop but here we don't need for loop
+    # return render(request, "stuapp/showobj.html", {"mydata": userdata})
