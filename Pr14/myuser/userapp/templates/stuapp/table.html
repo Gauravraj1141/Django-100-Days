@@ -1,0 +1,43 @@
+{% extends 'stuapp/base.html' %}
+
+
+{% block title %}
+home
+{% endblock title %}
+
+
+{% block content %}
+<div class="container text-center my-3">
+
+    <a href="{% url 'generate' %}">generate data</a>
+
+
+
+
+    <h1>see your data </h1>
+    <table class="table table-bordered border-primary">
+
+        <thead>
+            <tr>
+                <th scope="col">sr. no.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mydata in data %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ mydata.Name }}</td>
+                <td>{{ mydata.Phone }}</td>
+                <td>{{ mydata.Email }}</td>
+                <td>{{ mydata.Address }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
