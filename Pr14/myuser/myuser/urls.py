@@ -20,5 +20,5 @@ from userapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("generate", views.home, name="generate"),
-    path("table", views.table, name="table"),
+    path("Table", views.table, name="Table"),
 ]

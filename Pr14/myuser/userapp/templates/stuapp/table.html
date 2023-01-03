@@ -20,20 +20,28 @@ home
         <thead>
             <tr>
                 <th scope="col">sr. no.</th>
+
+                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">Address</th>
+                <th scope="col">Roll NO.</th>
+                <th scope="col">Date of Birth</th>
             </tr>
         </thead>
         <tbody>
             {% for mydata in data %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ mydata.Name }}</td>
+                <!--we can capitalize first letter by capfirst  -->
+                <td>{{ mydata.id }}</td>
+                <td>{{ mydata.Name|capfirst }}</td>
                 <td>{{ mydata.Phone }}</td>
                 <td>{{ mydata.Email }}</td>
                 <td>{{ mydata.Address }}</td>
+                <td>{{ mydata.roll }}</td>
+                <td>{{ mydata.Dob }}</td>
             </tr>
             {% endfor %}
         </tbody>
