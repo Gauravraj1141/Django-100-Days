@@ -1,0 +1,53 @@
+{% extends 'stuapp/base.html' %}
+
+
+{% block title %}
+table
+{% endblock title %}
+
+
+{% block content %}
+<div class="container text-center my-3">
+
+    <a href="{% url 'generate' %}">generate data</a>
+
+
+
+
+    <h1>see your data </h1>
+    <h3>Here we can see all aggregate functions</h3>
+
+    <h3>Average of marks :{{ avg }}</h3>
+    <h3>Average of marks :{{ avg.marks__avg }}</h3>
+    <h3>sum of marks :{{ sum.marks__sum }}</h3>
+    <h3>Minimum marks :{{ min.marks__min }}</h3>
+    <h3>maximum marks :{{ max.marks__max }}</h3>
+    <h3>number of marks :{{ count.marks__count }}</h3>
+
+    <table class="table table-bordered border-primary">
+
+        <thead>
+            <tr>
+                <th scope="col">sr. no.</th>
+
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">clnam</th>
+                <th scope="col">marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mydata in data %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <!--we can capitalize first letter by capfirst  -->
+                <td>{{ mydata.id }}</td>
+                <td>{{ mydata.name }}</td>
+                <td>{{ mydata.clname }}</td>
+                <td>{{ mydata.marks }}</td>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
