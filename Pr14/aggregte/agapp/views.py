@@ -24,7 +24,15 @@ def home(request):
     # studata = students.objects.filter(Q(id__gte=3) & Q(marks__gte=250))
 
     # now we use or operator |
-    studata = students.objects.filter(Q(id__gte=3) | Q(marks__gte=250))
+    # studata = students.objects.filter(Q(id__gte=3) | Q(marks__gte=250))
+
+    # ++++++++++++++++++++++++++++++++++++++++++++++
+    # LIMIted query set
+    # it is for first 5 values
+    # so we can show some limited values by this slicing
+    # studata = students.objects.all()[:5]
+
+    studata = students.objects.all()[:20]
     marksavg = studata.aggregate(Avg("marks"))
     marksum = studata.aggregate(Sum("marks"))
     marksmin = studata.aggregate(Min("marks"))
