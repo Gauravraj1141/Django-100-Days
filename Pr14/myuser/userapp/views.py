@@ -4,6 +4,8 @@ from .models import students, teacher
 from faker import Faker
 import random
 
+from datetime import date, time
+
 from django.db.models import Q
 
 fake = Faker()
@@ -18,8 +20,9 @@ def home(request):
         roll = fake.random.randint(10, 99)
         dob = fake.date_of_birth()
         salary = fake.random.randint(3000, 9999)
+        dt = fake.date_time()
         data = students.objects.create(
-            Name=name, Email=Email, Phone=Phone, Address=Address, roll=roll, Dob=dob)
+            Name=name, Email=Email, Phone=Phone, Address=Address, roll=roll, Dob=dob, dt=dt)
         data2 = teacher.objects.create(
             Name=name, Email=Email, Phone=Phone, Salary=salary, Dob=dob)
 
@@ -150,11 +153,81 @@ def table(request):
 
     # userdata1, updatedata = students.objects.filter(
     #     roll__gt=22).update_or_create(Name="Rajput Gaurav", defaults={"Name": "hey rajput ji"})
-    userdata = students.objects.all()
+    # userdata = students.objects.all()
 
     # print(userdata.count()) count() return all numbers of object in the database
     # we can show sql query  in our terminal by this query property
     # print(userdata.query)
+
+    #   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+    # Some Lookup Fields in query set \\
+    # userdata = students.objects.filter(roll__gte=33)
+
+    # exact means that particular value which is in this table so all the roll number where 45 all will show
+    # userdata = students.objects.filter(roll__exact=45) # it  is case sensitive we add i in it then it will case insensitive
+    # it  is case sensitive we add i in it then it will case insensitive
+    # userdata = students.objects.filter(Name__exact="christina Hodge") it is case sensitive
+    # userdata = students.objects.filter(
+    #     Name__iexact="christina Hodge")  # it is case insensitive
+
+    # it will show only where g is in this name it is case sensitive but here it will show case insensitive behaviour
+    # userdata = students.objects.filter(Name__contains="G") #it is case sensitive
+    # userdata = students.objects.filter(
+    #     Name__icontains="G")  # it is case insensitive
+
+    # it is in method so all id  which number is
+    # userdata = students.objects.filter(id__in=[2, 5, 8, 9, 6, 3, 54])
+    # userdata = students.objects.filter(roll__in=[44, 39, 65])
+
+    # greater than ,  less than , less than equal to lte ,  greater than equal to gte
+    # userdata = students.objects.filter(roll__gt=66)
+    # userdata = students.objects.filter(roll__gte=88)
+    # userdata = students.objects.filter(roll__lte=88)
+    # userdata = students.objects.filter(roll__lt=88)
+
+    # startswith and enswith it is case sensitive and we use i with it then it will case insensitive but in sqllite database it case insensitive
+    # userdata = students.objects.filter(roll__startswith=8)
+    # userdata = students.objects.filter(Name__startswith="ra")
+    # userdata = students.objects.filter(Name__istartswith="ra")
+    # userdata = students.objects.filter(Name__endswith="ra")
+    # userdata = students.objects.filter(Name__iendswith="ra")
+    # userdata = students.objects.filter(Name__endswith="er")
+
+    # Date method range is show some date between we give here we can use this type
+    # userdata = students.objects.filter(Dob__range=(
+    #     "2015-01-01", "2023-01-01")).order_by("Dob")
+
+    # it is only for datatime field and we need to import data and time for checking it
+    # userdata = students.objects.filter(dt__date=date(2015, 1, 2))
+    # userdata = students.objects.filter(dt__date__gt=date(2015, 1, 2))
+
+    # we can check year also in date field and datetime field also so we can check year month and day also in date field and datetimfield also
+    # userdata = students.objects.filter(Dob__year=2015)
+    # userdata = students.objects.filter(Dob__year__gt=2015)
+    # userdata = students.objects.filter(Dob__year__gte=2015)
+
+    # userdata = students.objects.filter(Dob__month=5)
+    # userdata = students.objects.filter(Dob__month__gte=5)
+    # userdata = students.objects.filter(Dob__day=5)
+    # userdata = students.objects.filter(dt__day=5)
+    # userdata = students.objects.filter(dt__week=6)
+    # userdata = students.objects.filter(dt__week_day__gt=6)
+    # so it gives all months from quearter 3
+    # userdata = students.objects.filter(dt__quarter=3)
+    # userdata = students.objects.filter(dt__quarter__gt=3)
+
+    # userdata = students.objects.filter(dt__time__gt=time(12, 50))
+
+    # userdata = students.objects.filter(dt__hour=0)
+    # userdata = students.objects.filter(dt__hour__gt=0)
+    # userdata = students.objects.filter(dt__minute=5)
+    userdata = students.objects.filter(dt__second=5)
+
+    print(userdata)
+    print(userdata.query)
 
     return render(request, "stuapp/table.html", {"data": userdata})
     # it is only for one object because in table.html we use for loop but here we don't need for loop

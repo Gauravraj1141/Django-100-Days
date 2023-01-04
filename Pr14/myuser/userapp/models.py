@@ -10,6 +10,7 @@ class students(models.Model):
     roll = models.CharField(max_length=33)
     Address = models.CharField(max_length=200)
     Dob = models.DateField(default='2000-02-12')
+    dt = models.DateTimeField(default="2019-09-25 06:00")
 
 
 class teacher(models.Model):
