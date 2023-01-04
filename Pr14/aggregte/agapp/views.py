@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.db.models import Avg, Sum, Min, Max, Count
 from django.shortcuts import render
 from .models import students
@@ -16,7 +17,14 @@ def dataset(request):
 
 
 def home(request):
-    studata = students.objects.all()
+    # studata = students.objects.all()
+
+    # here we are using q object in queryset
+    # here we use & operator
+    # studata = students.objects.filter(Q(id__gte=3) & Q(marks__gte=250))
+
+    # now we use or operator |
+    studata = students.objects.filter(Q(id__gte=3) | Q(marks__gte=250))
     marksavg = studata.aggregate(Avg("marks"))
     marksum = studata.aggregate(Sum("marks"))
     marksmin = studata.aggregate(Min("marks"))
