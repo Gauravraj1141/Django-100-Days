@@ -1,0 +1,41 @@
+{% extends 'stuapp/base.html' %}
+
+
+{% block title %}
+home
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="container text-center my-3">
+    <h1>welcome to user data </h1>
+
+
+    <table class="table table-bordered border-primary">
+
+        <thead>
+            <tr>
+                <th scope="col">sr. no.</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">clnam</th>
+                <th scope="col">marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mydata in data %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <!--we can capitalize first letter by capfirst  -->
+                <td>{{ mydata.id }}</td>
+                <td>{{ mydata.name }}</td>
+                <td>{{ mydata.age }}</td>
+                <td>{{ mydata.marks }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
