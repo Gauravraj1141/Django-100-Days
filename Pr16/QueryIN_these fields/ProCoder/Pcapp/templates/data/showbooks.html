@@ -1,0 +1,92 @@
+{% extends "data/base.html" %}
+
+
+{% block title %}
+show books
+{% endblock title %}
+{% block content %}
+<h1>show books data</h1>
+
+
+
+<div class="my-4">
+    <h4>All Books data</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Book PUblish Date</th>
+                <th scope="col">Book Price</th>
+                <th scope="col">Book Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in alldata %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Book_name }}</td>
+                <td>{{ data.Book_pub_date }}</td>
+                <td>{{ data.Book_price }}</td>
+                <td>{{ data.author_names }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<div class="my-4">
+    <h4>some book which price is greater than 300 and less than 800</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Book PUblish Date</th>
+                <th scope="col">Book Price</th>
+                <th scope="col">Book Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in pricebook %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Book_name }}</td>
+                <td>{{ data.Book_pub_date }}</td>
+                <td>{{ data.Book_price }}</td>
+                <td>{{ data.author_names }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<div class="my-4">
+    <h4>show some books which are written by guarav attif and sachin</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Book PUblish Date</th>
+                <th scope="col">Book Price</th>
+                <th scope="col">Book Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in bookbyname %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Book_name }}</td>
+                <td>{{ data.Book_pub_date }}</td>
+                <td>{{ data.Book_price }}</td>
+                <td>{{ data.author_names }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<a href="/" class="btn btn-success m-4">Home</a>
+{% endblock content %}

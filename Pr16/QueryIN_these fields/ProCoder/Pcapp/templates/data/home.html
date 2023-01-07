@@ -1,0 +1,12 @@
+{% extends "data/base.html" %}
+
+
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
+<a href="{% url 'userdata' %}" class="btn btn-success m-4">User Data</a>
+<a href="{% url 'myblogdata' %}" class="btn btn-success m-4">User blogdata</a>
+<a href="{% url 'mybookdata' %}" class="btn btn-success m-4">User bookdata</a>
+<a href="{% url 'mypagedata' %}" class="btn btn-success m-4">User pagedata</a>
+{% endblock content %}

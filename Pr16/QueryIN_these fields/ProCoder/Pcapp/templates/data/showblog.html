@@ -1,0 +1,90 @@
+{% extends "data/base.html" %}
+
+
+{% block title %}
+showblog
+{% endblock title %}
+{% block content %}
+<h1>hey it is blogs</h1>
+
+
+
+
+<div class="my-4">
+    <h4>All Blog data</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Blog Name</th>
+                <th scope="col">Blog PUblish Date</th>
+                <th scope="col">Blog Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in alldata %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Blog_name }}</td>
+                <td>{{ data.Blog_pub_date }}</td>
+                <td>{{ data.Blog_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<div class="my-4">
+    <h4>all 2023 blogs </h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Blog Name</th>
+                <th scope="col">Blog PUblish Date</th>
+                <th scope="col">Blog Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in latest %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Blog_name }}</td>
+                <td>{{ data.Blog_pub_date }}</td>
+                <td>{{ data.Blog_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<div class="my-4">
+    <h4>by adding rdx blogs in 2022 </h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Blog Name</th>
+                <th scope="col">Blog PUblish Date</th>
+                <th scope="col">Blog Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in rdx %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Blog_name }}</td>
+                <td>{{ data.Blog_pub_date }}</td>
+                <td>{{ data.Blog_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+<a href="/" class="btn btn-success m-4">Home</a>
+{% endblock content %}

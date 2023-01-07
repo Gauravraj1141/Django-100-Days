@@ -1,0 +1,140 @@
+{% extends "data/base.html" %}
+
+
+{% block title %}
+showpages
+{% endblock title %}
+{% block content %}
+<h1>show pages</h1>
+
+
+
+<div class="my-4">
+    <h4>All Single pages Data</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">PageName</th>
+                <th scope="col">Page Date</th>
+                <th scope="col">Page Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in Alldata %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Page_name }}</td>
+                <td>{{ data.Page_date }}</td>
+                <td>{{ data.Page_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="my-4">
+    <h4>Pages those will make in 2023</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">PageName</th>
+                <th scope="col">Page Date</th>
+                <th scope="col">Page Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in somepage %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Page_name }}</td>
+                <td>{{ data.Page_date }}</td>
+                <td>{{ data.Page_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<div class="my-4">
+    <h4>Pages those will make in 2022</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">PageName</th>
+                <th scope="col">Page Date</th>
+                <th scope="col">Page Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in before %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Page_name }}</td>
+                <td>{{ data.Page_date }}</td>
+                <td>{{ data.Page_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<div class="my-4">
+    <h4>pages that make after jan and before september in 2022</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">PageName</th>
+                <th scope="col">Page Date</th>
+                <th scope="col">Page Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in norm %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Page_name }}</td>
+                <td>{{ data.Page_date }}</td>
+                <td>{{ data.Page_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<div class="my-4">
+    <h4>pages that makes attif rdx and guarav</h4>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">PageName</th>
+                <th scope="col">Page Date</th>
+                <th scope="col">Page Author name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in users %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ data.Page_name }}</td>
+                <td>{{ data.Page_date }}</td>
+                <td>{{ data.Page_author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+<a href="/" class="btn btn-success m-4">Home</a>
+{% endblock content %}
