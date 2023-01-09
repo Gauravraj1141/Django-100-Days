@@ -1,0 +1,14 @@
+{% extends "clapp/base.html" %}
+
+
+{% block content %}
+<h1>hey welcome to registration data in class based view</h1>
+{{ fmdata }}
+
+
+
+
+<a href="/" class="btn btn-success">HOme</a>
+<a href="{% url 'sample' %}" class="btn btn-success">dynamicurls</a>
+<a href="{% url 'sample2' %}" class="btn btn-success">dynamicurls2</a>
+{% endblock content %}

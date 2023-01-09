@@ -1,0 +1,15 @@
+{% extends "clapp/base.html" %}
+
+
+{% block content %}
+
+<h1>we give tempalte name in this url and can give any keyword name which is present in our view class </h1>
+{{ myname }}
+
+
+
+
+<a href="/" class="btn btn-success">HOme</a>
+<a href="{% url 'sample' %}" class="btn btn-success">dynamicurls</a>
+<a href="{% url 'sample2' %}" class="btn btn-success">dynamicurls2</a>
+{% endblock content %}

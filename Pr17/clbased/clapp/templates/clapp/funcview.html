@@ -1,0 +1,16 @@
+{% extends "clapp/base.html" %}
+
+
+{% block content %}
+
+<h1>it is my functionbased view with dynamiccally give template name</h1>
+{{ Name }}
+
+
+
+
+
+<a href="/" class="btn btn-success">HOme</a>
+<a href="{% url 'sample' %}" class="btn btn-success">dynamicurls</a>
+<a href="{% url 'sample2' %}" class="btn btn-success">dynamicurls2</a>
+{% endblock content %}
