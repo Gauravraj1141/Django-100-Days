@@ -4,7 +4,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
 from .forms import mycustomform
 from .models import Locker
-from django.urls import reverse_lazy
+from django.urls import reverse
 
 
 class Createmynewview(CreateView):
@@ -26,7 +26,7 @@ class Updatemyview(UpdateView):
 
 # here we redirect it also where we redirect create view by models.py
     def get_absolute_url(self):
-        return reverse_lazy("thankscreate", kwargs={"pk": self.pk})
+        return reverse("thankscreate", kwargs={"pk": self.pk})
 
 
 class Thankscreateview(DetailView):
