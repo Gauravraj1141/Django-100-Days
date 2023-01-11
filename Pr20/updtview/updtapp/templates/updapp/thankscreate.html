@@ -16,6 +16,8 @@
     {{ user.Password }}
 
     <a href="{% url 'Updateview' user.id %}"> Update data</a>
+    <br>
+    <a href="{% url 'Deleteview' user.id %}"> Delete data</a>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
 from .forms import mycustomform
@@ -27,6 +27,14 @@ class Updatemyview(UpdateView):
 # here we redirect it also where we redirect create view by models.py
     def get_absolute_url(self):
         return reverse("thankscreate", kwargs={"pk": self.pk})
+
+
+# here we create deleteview
+
+class DeleteMyview(DeleteView):
+    model = Locker
+    template_name = "updapp/delete.html"
+    success_url = "/"
 
 
 class Thankscreateview(DetailView):
