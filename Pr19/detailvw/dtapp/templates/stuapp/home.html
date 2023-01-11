@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOme</title>
+</head>
+
+<body>
+
+    <h2>here we show all users data with the help of listview </h2>
+
+    {% for studata in allusers %}
+
+    {{ studata.name }}
+
+    <a href="{% url 'student' studata.stu_id %}">Show Details</a>
+    <br>
+
+    {% endfor %}
+</body>
+
+</html>
