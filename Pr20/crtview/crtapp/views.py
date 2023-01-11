@@ -57,7 +57,7 @@ class Showdetails(DetailView):
 # we add some fields in our form like upper class  instead it we can add these attributes in our form like it
 # here we override our formview in createview
 
-
+# so it is working like as upper class RegisterSchools here we only give our custom form and all the things are smae
 class mynewformview(CreateView):
     # here we give model form name which we create in our forms.py
     form_class = mycustomform
