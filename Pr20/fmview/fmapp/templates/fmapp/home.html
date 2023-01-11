@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>it is feedback form </h1>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+
+
+        {% comment %} here we must give form name it's name bydefault form {% endcomment %}
+
+        {{ form.as_p }}
+        <input type="submit" value="Add Review">
+    </form>
+</body>
+
+</html>
