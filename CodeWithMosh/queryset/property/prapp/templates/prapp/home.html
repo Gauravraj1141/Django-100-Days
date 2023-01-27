@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOme</title>
+</head>
+
+<body>
+    {% comment %} <h1>Welcome to Home</h1>
+    {% for d in data %}
+
+    <h1> Id : {{ d.id }} <br></h1>
+    <h1> Name : {{ d.name }} <br></h1>
+
+    <h1> Email : {{ d.email }}<br></h1>
+    <h1> Phone:{{ d.phone }}<br></h1>
+    <h1> Address : {{ d.address }}<br></h1>
+    {% for pr in d.property.all  %}
+
+
+    <h1> Property : {{ pr.name }}<br></h1>
+    <h1> Property id : {{ pr.id }}<br></h1>
+    <h1> Property Price : {{ pr.price }}<br></h1>
+    {% endfor %}
+    {% endfor %}
+
+    {% comment %} <h1>show data when we use value method in our queryset </h1>
+    {{ data }}<br> {% endcomment %}
+</body>
+
+</html>
