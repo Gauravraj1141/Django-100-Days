@@ -1,0 +1,34 @@
+[33me4af6ef[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m adding property assignment
+[33m280ece5[m authentication view with custom fields
+[33m226bf3b[m login required in class base view and urls also
+[33m03a2791[m login requried
+[33mb3f41a8[m authenticateview
+[33m77b66fb[m generic edit class createview,formview,updateview,deleteview
+[33m4a4769b[m generic edit class createview,formview,updateview
+[33mb6794a3[m generic edit class createview,formview,updateview
+[33m0890040[m generic edit view createview & formview & all
+[33mac26ef1[m generic edit view createview & formview & all
+[33m054c763[m formview in generic base class
+[33m7b4f62d[m detail view in generic view  and list view also
+[33m61b6e2d[m listview in generic view
+[33md8030a2[m crud project with class base view
+[33m6f9b76c[m redirectview in class based view
+[33mf97977a[m templateview in class based view
+[33m4217d77[m class based views
+[33m35ac8b6[m Merge branch 'main' of https://github.com/Gauravraj1141/Django-100-Days
+[33me7eb504[m All model realtionship with more example and how to get data from database in model relationship
+[33mfc2bf27[m add me
+[33mbc233e6[m foreignkey (one to many relationship)
+[33m6768e08[m many to many realtionship
+[33me70b61e[m one to one relationsship
+[33meef7992[m custom manager and proxy with custom manager
+[33m97a5059[m what is proxy model
+[33mbae8394[m abstract base class model inheritence
+[33mbbb41e0[m slicing in values for showing limiting queryset
+[33mec023fe[m Q Object in query set
+[33mab3c6c7[m aggregate function
+[33mbbec380[m adding Fieldlookups methods
+[33m3ad4cc9[m add some queryset method
+[33m2e6d1e5[m some query sets
+[33m38b476c[m query set api
+[33m6d13acd[m adding
